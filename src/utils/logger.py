@@ -73,9 +73,9 @@ if not os.path.exists(logs_dir):
 log_filename = f'logs/metalearn_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log'
 
 @lru_cache(maxsize=None)
-def get_logger(log_level='INFO') -> logging.Logger:
+def get_logger(log_level='INFO', log_file=None) -> logging.Logger:
     """Singleton per normalized file path."""
-    logger = setup_logger(log_level)
+    logger = setup_logger(log_level, log_file=log_file)
     return logger
 
 

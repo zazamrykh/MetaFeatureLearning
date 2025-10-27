@@ -1,0 +1,27 @@
+2025-10-27 20:34:32 - metalearn - INFO - Initial dataset columns: Index(['V1', 'V2', 'V3', 'V4', 'V5', 'V6', 'V7', 'V8', 'V9', 'V10', 'V11',
+       'V12', 'target'],
+      dtype='object')
+2025-10-27 20:34:32 - metalearn - INFO - Initial dataset first three rows:      V1      V2    V3  V4  V5  V6      V7  V8  V9 V10   V11  V12  target
+0  5.23  3483.0  0.13   2  v2  v1  7159.0  v3   1  v1  1.37    2  class1
+1  5.74  3123.0  0.62   2  v1  v1  4642.0  v2   1  v1  1.98    2  class2
+2  5.68  3096.0  0.52   1  v1  v1  4519.0  v3   2  v2  0.56    0  class2
+2025-10-27 20:34:32 - metalearn - INFO - Extracting features for dataset 26
+2025-10-27 20:34:32 - metalearn - INFO - Extracting base features
+2025-10-27 20:34:32 - metalearn - INFO - Extracting stat features
+2025-10-27 20:34:32 - metalearn - INFO - Extracting struct features
+2025-10-27 20:34:33 - metalearn - INFO - Shuffled dataset columns: Index(['V3', 'V8', 'V6', 'V10', 'V4', 'V5', 'target', 'V9', 'V11', 'V7', 'V12',
+       'V2', 'V1'],
+      dtype='object')
+2025-10-27 20:34:33 - metalearn - INFO - Shuffled dataset first three rows:      V3  V8  V6 V10  V4  V5  target  V9   V11      V7  V12      V2    V1
+0  0.44  v2  v1  v1   0  v2  class3   1  1.95  6196.0    2  3493.0  8.29
+1  0.53  v2  v1  v1   2  v1  class1   0  1.73  4183.0    0  3474.0  4.81
+2  0.53  v2  v2  v3   2  v2  class1   0  2.05  3111.0    1  3122.0  6.54
+2025-10-27 20:34:33 - metalearn - INFO - Extracting features for dataset 26
+2025-10-27 20:34:33 - metalearn - INFO - Extracting base features
+2025-10-27 20:34:33 - metalearn - INFO - Extracting stat features
+2025-10-27 20:34:33 - metalearn - INFO - Extracting struct features
+2025-10-27 20:34:33 - metalearn - INFO - Comparison base metafeatures result: True; problems: {}
+2025-10-27 20:34:33 - metalearn - INFO - Comparison stat metafeatures result: True; problems: (True, {})
+2025-10-27 20:34:33 - metalearn - INFO - Comparison struct metafeatures result: True; problems: (True, {})
+2025-10-27 20:34:33 - metalearn - INFO - Initial dataset features: MetaFeatures(index=26, base_feat=BaseMetaFeat(n_samples=700, n_features=13, n_cat=4, n_classes=3), stat_feat=StatisticMetaFeat(values={'mean_of_mean_per_col': 1053.5226767857143, 'std_of_mean_per_col': 2012.7045594249466, 'min_of_mean_per_col': 0.4008714285714286, 'max_of_mean_per_col': 5157.932857142857, 'mean_of_std_per_col': 201.16561112853293, 'std_of_std_per_col': 500.0742742909174, 'min_of_std_per_col': 0.1719723520904074, 'max_of_std_per_col': 1429.6357649338838, 'mean_of_min_per_col': 758.76125, 'std_of_min_per_col': 1404.432535708055, 'min_of_min_per_col': 0.0, 'max_of_min_per_col': 3069.0, 'mean_of_max_per_col': 1375.13875, 'std_of_max_per_col': 2730.514397814017, 'min_of_max_per_col': 0.67, 'max_of_max_per_col': 7362.0}), struct_feat=StructuredMetaFeat(values={'tree__depth': 3.0, 'tree__n_nodes': 13.0, 'tree__n_leaves': 7.0, 'tree__leaf_samples_mean': 100.0, 'tree__leaf_samples_std': 109.22453936730518, 'tree__train_acc': 0.4742857142857143, 'knn__inter_centroid_min': 0.2228765430730932, 'knn__inter_centroid_mean': 0.5959209871375037, 'knn__inter_centroid_max': 0.8517847030321037, 'knn__within_dispersion_mean': 2.7607132351130534, 'knn__separation_ratio': 0.21585761953029664, 'knn__train_acc': 0.6557142857142857, 'linear__coef_l2_norm': 0.5858425517461153, 'linear__coef_mean_abs': 0.07461131461924657, 'linear__coef_sparsity_frac': 0.0, 'linear__intercept_abs': 0.062036883944536325, 'linear__train_acc': 0.45714285714285713}))
+2025-10-27 20:34:33 - metalearn - INFO - Shuffled dataset features: MetaFeatures(index=26, base_feat=BaseMetaFeat(n_samples=700, n_features=13, n_cat=4, n_classes=3), stat_feat=StatisticMetaFeat(values={'mean_of_mean_per_col': 1053.522676785714, 'std_of_mean_per_col': 2012.7045594249464, 'min_of_mean_per_col': 0.4008714285714286, 'max_of_mean_per_col': 5157.932857142857, 'mean_of_std_per_col': 201.16561112853293, 'std_of_std_per_col': 500.0742742909174, 'min_of_std_per_col': 0.1719723520904074, 'max_of_std_per_col': 1429.6357649338838, 'mean_of_min_per_col': 758.76125, 'std_of_min_per_col': 1404.432535708055, 'min_of_min_per_col': 0.0, 'max_of_min_per_col': 3069.0, 'mean_of_max_per_col': 1375.1387499999998, 'std_of_max_per_col': 2730.514397814017, 'min_of_max_per_col': 0.67, 'max_of_max_per_col': 7362.0}), struct_feat=StructuredMetaFeat(values={'tree__depth': 3.0, 'tree__n_nodes': 13.0, 'tree__n_leaves': 7.0, 'tree__leaf_samples_mean': 100.0, 'tree__leaf_samples_std': 109.22453936730518, 'tree__train_acc': 0.4742857142857143, 'knn__inter_centroid_min': 0.22287654307309324, 'knn__inter_centroid_mean': 0.5959209871375037, 'knn__inter_centroid_max': 0.8517847030321039, 'knn__within_dispersion_mean': 2.7607132351130534, 'knn__separation_ratio': 0.21585761953029664, 'knn__train_acc': 0.6557142857142857, 'linear__coef_l2_norm': 0.5858425517461154, 'linear__coef_mean_abs': 0.07461131461924657, 'linear__coef_sparsity_frac': 0.0, 'linear__intercept_abs': 0.06203688394453622, 'linear__train_acc': 0.45714285714285713}))
