@@ -156,7 +156,24 @@ class MetaFeatures:
                 base_feat = BaseMetaFeat.init_from_dict(dict['base_feat']),
                 stat_feat = StatisticMetaFeat.init_from_dict(dict['stat_feat']),
                 struct_feat = StructuredMetaFeat.init_from_dict(dict['struct_feat']),
+                index = dict.get("index", -1)
             )
+
+    def to_dataframe(self) -> pd.DataFrame:
+        row = {
+            "base__n_samples": int(self.base_feat.n_samples),
+            "base__n_features": int(self.base_feat.n_features),
+            "base__n_cat": int(self.base_feat.n_cat),
+            "base__n_classes": int(self.base_feat.n_classes),
+        }
+
+        for k, v in (self.stat_feat.values or {}).items():
+            row[f"stat__{k}"] = v
+
+        for k, v in (self.struct_feat.values or {}).items():
+            row[f"struct__{k}"] = v
+
+        return pd.DataFrame([row])
 
     Number = Union[int, float, np.floating]
     MetaUnion = Union["BaseMetaFeat", "StatisticMetaFeat", "StructuredMetaFeat"]
@@ -238,7 +255,7 @@ class MetaFeatExtractor:
     def __init__(self):
         pass
 
-    def extract_all(self, path, save_path = 'data/extracted'):
+    def extract_all(self, path, save_path = 'data/extracted', return_datasets=False):
         dataset_list = []
 
         logger.info(f'Extracting metafeatures from all datasets from path: {path}')
@@ -277,8 +294,10 @@ class MetaFeatExtractor:
             os.makedirs(save_path, exist_ok=True)
             for metafeature in metafeatures_list:
                 metafeature.save_json(os.path.join(save_path, str(metafeature.index) + '.json'))
-
-        return metafeatures_list
+        if not return_datasets:
+            return metafeatures_list
+        else:
+            return metafeatures_list, dataset_list
 
 
     def extract(self, dataset: str | Dataset) -> MetaFeat:

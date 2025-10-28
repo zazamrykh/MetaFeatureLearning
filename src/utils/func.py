@@ -1,7 +1,10 @@
 
 from typing import Dict, List, Tuple
 
+import numpy as np
 import pandas as pd
+from scipy import sparse
+from sklearn.preprocessing import OneHotEncoder
 from src.data.dataset import Dataset
 
 def get_feature_mapping(dataset : Dataset, target_col: str = "target") -> Dict:
@@ -45,9 +48,44 @@ def get_numeric_frame(dataset: Dataset, target_col: str = "target") -> Tuple[pd.
     return X, y
 
 
-def standardize_inplace(X: pd.DataFrame) -> pd.DataFrame:
-    # Простейшая стандартизация с защитой от нулевой дисперсии
-    mu = X.mean(numeric_only=True)
-    sigma = X.std(numeric_only=True).replace(0.0, 1.0)
-    Z = (X - mu) / sigma
-    return Z
+def standardize_inplace(X):
+    """
+    Стандартизует по столбцам (2D) или по всей оси (1D).
+    - Вход: DataFrame | ndarray | sparse
+    - Выход: сохраняет тип DataFrame, иначе ndarray.
+    - NaN устойчивость: np.nanmean / np.nanstd
+    - Нулевая дисперсия: деление на 1 вместо 0
+    """
+    was_df = isinstance(X, pd.DataFrame)
+    if sparse.issparse(X):
+        X = X.toarray()
+        was_df = False
+
+    if was_df:
+        cols = X.columns
+        idx = X.index
+        arr = X.to_numpy(dtype=float)
+    else:
+        arr = np.asarray(X, dtype=float)
+
+    if arr.ndim == 1:
+        mu = float(np.nanmean(arr))
+        sigma = float(np.nanstd(arr, ddof=0))
+        if sigma == 0.0 or not np.isfinite(sigma):
+            sigma = 1.0
+        Z = (arr - mu) / sigma
+        return pd.Series(Z, index=idx, name=X.name) if was_df else Z
+    else:
+        # 2D: стандартизация по столбцам
+        mu = np.nanmean(arr, axis=0)
+        sigma = np.nanstd(arr, axis=0, ddof=0)
+        sigma = np.where((sigma == 0.0) | ~np.isfinite(sigma), 1.0, sigma)
+        Z = (arr - mu) / sigma
+        return pd.DataFrame(Z, columns=cols, index=idx) if was_df else Z
+
+
+def one_hot_encode_df(df):
+    enc = OneHotEncoder(handle_unknown='ignore', sparse_output=False)
+    enc.fit(df)
+    df = enc.transform(df)
+    return df, enc
