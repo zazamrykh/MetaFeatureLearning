@@ -1,3 +1,7 @@
 openml
+numpy
 pandas
 simplejson
+matplotlib
+umap-learn
+pymfe

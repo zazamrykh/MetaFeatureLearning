@@ -1,0 +1,16 @@
+2025-10-28 23:37:40 - metalearn - INFO - Loading meta and quality from data/metalearn
+2025-10-28 23:37:40 - metalearn - INFO - Loaded dataframe with 300 rows and 42 columns
+2025-10-28 23:37:40 - metalearn - INFO - Fit and eval models
+2025-10-28 23:37:40 - metalearn - INFO - Test accuracy by approach:
+2025-10-28 23:37:40 - metalearn - INFO -   tree: 0.6000
+2025-10-28 23:37:40 - metalearn - INFO -   knn: 0.4833
+2025-10-28 23:37:40 - metalearn - INFO -   linear: 0.4667
+2025-10-28 23:37:40 - metalearn - INFO -   naive: 0.4000
+2025-10-28 23:37:54 - metalearn - INFO - Loading meta and quality from data/pymfe_metalearn
+2025-10-28 23:37:54 - metalearn - INFO - Loaded dataframe with 209 rows and 11 columns
+2025-10-28 23:37:54 - metalearn - INFO - Fit and eval models
+2025-10-28 23:37:54 - metalearn - INFO - Test accuracy by approach:
+2025-10-28 23:37:54 - metalearn - INFO -   tree: 0.5476
+2025-10-28 23:37:54 - metalearn - INFO -   knn: 0.5476
+2025-10-28 23:37:54 - metalearn - INFO -   linear: 0.6190
+2025-10-28 23:37:54 - metalearn - INFO -   naive: 0.5714

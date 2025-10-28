@@ -1,0 +1,15 @@
+2025-10-28 22:01:48 - metalearn - INFO - Loaded dataset index=-1, shape=(700, 13), columns=['V1', 'V2', 'V3', 'V4', 'V5', 'V6', 'V7', 'V8']...
+2025-10-28 22:01:48 - metalearn - INFO - Extracting features for dataset -1
+2025-10-28 22:01:48 - metalearn - INFO - Extracting base features
+2025-10-28 22:01:48 - metalearn - INFO - Extracting stat features
+2025-10-28 22:01:48 - metalearn - INFO - Extracting struct features
+2025-10-28 22:01:48 - metalearn - INFO - Extracted features (before shuffle) via project extractor.
+2025-10-28 22:01:48 - metalearn - INFO - Shuffled dataset shape=(700, 13), columns=['V1', 'V8', 'V6', 'V10', 'V11', 'V5', 'V3', 'V2']...
+2025-10-28 22:01:48 - metalearn - INFO - Extracting features for dataset -1
+2025-10-28 22:01:48 - metalearn - INFO - Extracting base features
+2025-10-28 22:01:48 - metalearn - INFO - Extracting stat features
+2025-10-28 22:01:48 - metalearn - INFO - Extracting struct features
+2025-10-28 22:01:48 - metalearn - INFO - Extracted features (after shuffle) via project extractor.
+2025-10-28 22:01:48 - metalearn - INFO - Base invariance: True; diffs: {}
+2025-10-28 22:01:48 - metalearn - INFO - Stat invariance: True; diffs_count=0
+2025-10-28 22:01:48 - metalearn - INFO - Struct invariance: True; diffs_count=0
